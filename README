@@ -1,8 +1,9 @@
 SmokeChart: SmokePing-like charts for d3.js
 
-Disclaimer: 
- You are welcome to help. The library is currently in state of "I have an idea".
- It likely needs a facelift and more d3-like interface.
+YOU ARE WELCOME TO HELP!
+
+This library is currently in state of "I have an idea". It likely needs a facelift
+and more d3-like interface.
 
 
 BASIC USAGE
@@ -13,8 +14,8 @@ BASIC USAGE
        .addGuide('capacity', 160000, '#f00')
        .showLabels(['6:00', '12:00', '18:00', '0:00']);
 
-Idea is simple: ask for a chart, put some lines, labels and guidelines. You may also dynamically change
-your chart content using functions described in API reference.
+Idea is simple: ask for a chart, put some lines, labels and guidelines. You may also 
+dynamically change your chart content using functions described in API reference.
 
 SEE ALSO
 
