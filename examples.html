@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html><head>
+<title>Smoke-ping lib test</title>
+<script type="text/javascript" src="d3.v2.min.js"></script>
+<style type="text/css">
+path.line{fill:none;opacity:.6;stroke-width:1.5px}
+.chart {float:left;margin-right:2em}
+h4{font-size:12px;font-family:sans}
+
+.available{opacity:.8;fill:#060;stroke-width:1px;stroke-color:red}
+.unavailable{opacity:1;fill:#000}
+.avlpercent{font-size:8px;font-family:sans;fill:white;font-weight:bold;opacity:.9}
+.label{font-size:8px;font-family:sans;fill:#333;opacity:.9}
+.axis{shape-rendering:crispEdges;opacity.5;fill:#777}
+.axis text{font-size:8px;font-family:sans;fill:#333}
+
+.y.axis line,.y.axis path{fill:none;stroke:#777}
+.guide{shape-rendering:crispEdges;opacity:1;stroke-width:1px!important;}
+</style>
+</head>
+
+<body>
+<div id="chart1" class='chart'><h4>Basic Visualization</h4></div>
+<div id="chart2" class='chart'><h4>With Error Markers</h4></div>
+<div id="chart4" class='chart'><h4>With Availability Info</h4></div>
+<div id="chart3" class='chart'><h4>With "SmokePing" Effect</h4></div>
+<div id="chart5" class='chart'><h4 style='margin-left:30px'>With Labels and Guides</h4></div>
+<div id="chart6" class='chart'><h4>Dynamic Chart <a href='#' style='display:none'>[update]</a></h4> </div>
+<div style='clear:left'></div><div>&nbsp;</div>
+
+<div style='margin:1px auto;width:900px'>
+<div id="chart-smoke" class='chart'><h4>SmokeChart</h4></div>
+<div id="chart-flame" class='chart'><h4>FlameChart</h4></div>
+<div style='clear:left'></div><div>&nbsp;</div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="smokechart.js"></script>
+<script>
+var smoke1 = new SmokeChart("#chart1", 160, 28, 60, 150);
+smoke1.addLine('l',d3.transpose([
+	[7,10,3,3,3,4,5,3,5,3,3,3,4,4,4,2,3,12,3,4,3,5,4,4,3,4,3,19,4,3,3,3,3,7,6,3,5,3,3,4,3,4,5,4,4,44,15,3,3,4,4,3,3,3,125,4,4,38,2,4,11,5,3,3,3,4],
+]), "#900", "#999");
+
+var smoke2 = new SmokeChart("#chart2", 160, 28, 60, 45);
+smoke2.addLine('l',d3.transpose([
+	[3,4,7,26,6,3,5,2,4,5,3,2,7,3,3,3,5,5,2,2,4,3,3,3,3,10,2,2,20,3,2,2,6,2,3,4,3,2,3,2,3,3,3,2,7,6,4,6,3,4,2,3,3,7,3,3,25,4,2,4,2,3,2,7,4,11]
+]), "#333", "#000").showMarkers([
+	0,
+	10,10,10,10,
+	35,
+	45,46,47,47,47,48,48,48,49,49,50,55
+]);
+
+var smoked_data = [
+	[38,3,3,3,38,38], [12,4,4,4,12,12], [8,7,7,7,8,8], [9,26,26,26,9,9], [11,6,6,6,11,11], [8,11,11,11,8,8],
+	[10,3,3,3,10,10], [8,5,5,5,8,8], [8,2,2,2,8,8], [80,4,4,4,80,8], [8,5,5,5,8,8], [8,3,3,3,8,8],
+	[11,2,2,2,11,11], [11,7,7,7,11,11], [96,3,3,3,96,96], [9,3,3,3,9,9], [8,3,3,3,8,8], [90,5,5,5,90,9],
+	[27,5,5,5,27,27], [8,2,2,2,8,8], [9,2,2,2,9,9], [9,4,4,4,9,9], [9,3,3,3,9,9], [15,3,3,3,15,15],
+	[8,3,3,3,8,8], [9,3,3,3,9,9], [90,10,10,10,90,9], [10,2,2,2,10,10], [12,2,2,2,12,12], [9,20,20,20,9,9],
+	[8,3,3,3,8,8], [9,2,2,2,9,9], [11,2,2,2,11,11], [9,6,6,6,9,9], [8,2,2,2,8,8], [42,3,3,3,42,42],
+	[30,4,4,4,30,30], [8,3,3,3,8,8], [8,2,2,2,8,8], [8,3,3,3,8,8], [10,2,2,2,10,10], [9,3,3,3,9,9],
+	[9,3,3,3,9,9], [8,3,3,3,8,8], [8,2,2,2,8,8], [23,7,7,7,23,23], [14,6,6,6,14,14], [9,4,4,4,9,9],
+	[10,6,6,6,10,10], [8,3,3,3,8,8], [9,4,4,4,9,9], [9,2,2,2,9,9], [9,3,3,3,9,9], [14,3,3,3,14,14],
+	[9,7,7,7,9,9], [12,3,3,3,12,12], [10,3,3,3,10,10], [44,25,25,25,44,44], [8,4,4,4,8,8], [9,2,2,2,9,9],
+	[9,4,4,4,9,9], [18,2,2,2,18,18], [13,3,3,3,13,13], [12,2,2,2,12,12], [8,7,7,7,8,8], [14,4,4,4,14,14]
+];
+
+
+var smoke3 = new SmokeChart("#chart3", 160, 28, 60, 295);
+smoke3.addLine('l',smoked_data, "#000", "#f76");
+
+
+var smoke4 = new SmokeChart("#chart4", 160, 28, 60, 125);
+smoke4.height(85);
+smoke4.addLine('l',d3.transpose([
+	[28,29,28,27,49,27,27,29,27,28,28,28,29,29,27,27,27,28,27,124,28,27,35,27,27,27,49,28,28,30,27,28,28,27,27,27,30,28,31,27,27,29,35,28,28,28,27,29,27,35,34,27,28,27,29,27,28,28,28,29,28,27,45,27,28,29,27,27,27]
+]), "#33C", "#000").showAvailability([
+	100,98,100,100,100
+], 25);
+
+var smoke5 = new SmokeChart("#chart5", 195, 28, 60, 1500);
+smoke5.yaxis("left",35,2);
+smoke5.addGuide('z', 0, '#999').addGuide('d',1000,'#Faa').addLine('l',d3.transpose([
+	[254,253,228,250,272,256,233,289,332,366,326,281,274,314,304,280,260,342,324,359,363,479,319,343,315,846,327,811,300,347,353,354,889,416,907,417,434,401,422,405,374,430,407,394,440,1157,409,448,444,421,412,415,423,421,315,510,501,494,422,349,391]
+]), "#040", "#000").showLabels(['', '', '14:00', '', '', '14:30']).selectAll('.label').attr("transform", "translate(0,-10)");
+
+
+var smoke6 = new SmokeChart("#chart6", 195, 28, 60, 350);
+var i = 0, j=0, l1=[1,2,3,4,5], l2=[6,7,8,9,10];
+var data1 = d3.range(60).map(function(d){
+	i = Math.floor(i+Math.random()*100) % 300;
+	j = Math.floor(i+Math.random()*10) % 30;
+	return [i-d,j,d-j,d/2,d/4,d]
+});
+var data2 = d3.range(60).map(function(d){
+	i = Math.floor(i/2+Math.random()*100) % 300;
+	j = Math.floor(j/2+Math.random()*10) % 30;
+	return [i-d,j,d-j,15-d/4,60-d,30-d/2]
+});
+
+smoke6.showLabels(l1).addLine('u', data1, "#222", "#f00");
+
+smoke6.parentNode.selectAll("#chart6 a").style("display", "inline").on('click', function() {
+	smoke6.updateLine('u', data2).showLabels(l2);
+	var tmp = data2;
+	data2 = data1; data1 = tmp;
+	tmp = l2;
+	l2 = l1; l1 = tmp;
+	d3.event.stopPropagation();
+	d3.event.preventDefault();
+});
+
+
+
+var smoke_big = new SmokeChart("#chart-smoke", 400, 80, 60, 295);
+smoke_big.addLine('l',smoked_data, "#000", "#f76");
+
+var flame_big = new FlameChart("#chart-flame", 400, 80, 60, 295);
+flame_big.addLine('l',smoked_data, "#000", "#f76");
+
+</script>
