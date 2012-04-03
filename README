@@ -1,7 +1,9 @@
 SmokeChart: SmokePing-like charts for d3.js
 
-*Disclaimer*: You are welcome to help. The library is currently in state of "I have an idea". 
-It likely needs a facelift and more d3-like interface.
+Disclaimer: 
+ You are welcome to help. The library is currently in state of "I have an idea".
+ It likely needs a facelift and more d3-like interface.
+
 
 BASIC USAGE
 
