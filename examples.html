@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html><head>
-<title>Smoke-ping lib test</title>
-<script type="text/javascript" src="d3.v2.min.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3-smokechart by dyninc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
 <style type="text/css">
+body{font-family:Tahoma,Arial,sans-serif}
+h1,h2{clear:both}
+h2{padding-top:2em}
+h4{font-family:Arial,sans-serif;font-size:.9em;font-weight:normal}
+
+section{width:auto;clear:both}
+section div{float:left;margin-left:20px}
 path.line{fill:none;opacity:.6;stroke-width:1.5px}
-.chart {float:left;margin-right:2em}
-h4{font-size:12px;font-family:sans}
+.chart {margin-bottom:3em}
 
 .available{opacity:.8;fill:#060;stroke-width:1px;stroke-color:red}
 .unavailable{opacity:1;fill:#000}
@@ -16,27 +25,35 @@ h4{font-size:12px;font-family:sans}
 
 .y.axis line,.y.axis path{fill:none;stroke:#777}
 .guide{shape-rendering:crispEdges;opacity:1;stroke-width:1px!important;}
+header,footer{opacity:.7}
 </style>
 </head>
-
 <body>
-<div id="chart1" class='chart'><h4>Basic Visualization</h4></div>
-<div id="chart2" class='chart'><h4>With Error Markers</h4></div>
-<div id="chart4" class='chart'><h4>With Availability Info</h4></div>
-<div id="chart3" class='chart'><h4>With "SmokePing" Effect</h4></div>
-<div id="chart5" class='chart'><h4 style='margin-left:30px'>With Labels and Guides</h4></div>
-<div id="chart6" class='chart'><h4>Dynamic Chart <a href='#' style='display:none'>[update]</a></h4> </div>
-<div style='clear:left'></div><div>&nbsp;</div>
 
-<div style='margin:1px auto;width:900px'>
-<div id="chart-smoke" class='chart'><h4>SmokeChart</h4></div>
-<div id="chart-flame" class='chart'><h4>FlameChart</h4></div>
-<div style='clear:left'></div><div>&nbsp;</div>
-</div>
+<h1>D3 SmokeChart Examples</h1>
 
-</body>
-</html>
+<section>
+        <div id="chart1" class='chart'><h4>Basic Line Chart</h4></div>
+        <div id="chart2" class='chart'><h4>With Error Markers</h4></div>
+        <div id="chart4" class='chart'><h4>With Availability Info</h4></div>
+</section>
 
+<section>
+        <div id="chart3" class='chart'><h4>With "SmokePing" Effect</h4></div>
+        <div id="chart5" class='chart'><h4>With Labels and Guides</h4></div>
+        <div id="chart6" class='chart'><h4>Dynamic Chart <a href='#' style='display:none'>[click to update]</a></h4> </div>
+</section>
+
+
+        <h2>How "FlameChart" is different?</h2>
+<section>
+        <div id="chart-smoke" class='chart'><h4>SmokeChart</h4></div>
+        <div id="chart-flame" class='chart'><h4>FlameChart</h4></div>
+</section>
+
+
+
+<script type="text/javascript" src="d3.v2.min.js"></script>
 <script type="text/javascript" src="smokechart.js"></script>
 <script>
 var smoke1 = new SmokeChart("#chart1", 160, 28, 60, 150);
@@ -122,3 +139,8 @@ var flame_big = new FlameChart("#chart-flame", 400, 80, 60, 295);
 flame_big.addLine('l',smoked_data, "#000", "#f76");
 
 </script>
+
+<a href="http://github.com/dyninc/d3-smokechart"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+
+</body>
+</html>
