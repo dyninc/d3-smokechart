@@ -2,18 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>D3-smokechart by dyninc</title>
-    
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 <style type="text/css">
+body{font-family:Tahoma,Arial,sans-serif}
+h1,h2{clear:both}
+h2{padding-top:2em}
+h4{font-family:Arial,sans-serif;font-size:.9em;font-weight:normal}
+
+section{width:auto;clear:both}
+section div{float:left;margin-left:20px}
 path.line{fill:none;opacity:.6;stroke-width:1.5px}
 .chart {margin-bottom:3em}
-h4{font-size:12px;font-family:sans}
 
 .available{opacity:.8;fill:#060;stroke-width:1px;stroke-color:red}
 .unavailable{opacity:1;fill:#000}
@@ -26,38 +27,30 @@ h4{font-size:12px;font-family:sans}
 .guide{shape-rendering:crispEdges;opacity:1;stroke-width:1px!important;}
 header,footer{opacity:.7}
 </style>
+</head>
+<body>
 
+<h1>D3 SmokeChart Examples</h1>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h2>D3-smokechart</h2>
-        <p>Smoke (flame) chart library for D3.js users</p>
-        <p class="view"><a href="https://github.com/dyninc/d3-smokechart">View the Project on GitHub <small>dyninc/d3-smokechart</small></a></p>
-        <ul>
-          <li><a href="https://github.com/dyninc/d3-smokechart/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/dyninc/d3-smokechart/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/dyninc/d3-smokechart">Fork On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>Examples</h1>
-
+<section>
         <div id="chart1" class='chart'><h4>Basic Line Chart</h4></div>
         <div id="chart2" class='chart'><h4>With Error Markers</h4></div>
         <div id="chart4" class='chart'><h4>With Availability Info</h4></div>
+</section>
+
+<section>
         <div id="chart3" class='chart'><h4>With "SmokePing" Effect</h4></div>
         <div id="chart5" class='chart'><h4>With Labels and Guides</h4></div>
-        <div id="chart6" class='chart'><h4>Dynamic Chart <a href='#' style='display:none'>[update]</a></h4> </div>
+        <div id="chart6" class='chart'><h4>Dynamic Chart <a href='#' style='display:none'>[click to update]</a></h4> </div>
+</section>
 
 
         <h2>How "FlameChart" is different?</h2>
+<section>
         <div id="chart-smoke" class='chart'><h4>SmokeChart</h4></div>
         <div id="chart-flame" class='chart'><h4>FlameChart</h4></div>
+</section>
+
 
 
 <script type="text/javascript" src="d3.v2.min.js"></script>
@@ -147,15 +140,7 @@ flame_big.addLine('l',smoked_data, "#000", "#f76");
 
 </script>
 
+<a href="http://github.com/dyninc/d3-smokechart"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
 
-
-
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/dyninc">dyninc</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+</body>
 </html>
