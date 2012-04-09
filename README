@@ -17,6 +17,14 @@ BASIC USAGE
 Idea is simple: ask for a chart, put some lines, labels and guidelines. You may also 
 dynamically change your chart content using functions described in API reference.
 
+FUTURE
+
+* I'd like to make charts less of "functional programming" and more similar to
+  other d3 libs, as described in http://bost.ocks.org/mike/chart/
+* Some inheritance from time-series chart or another existing component would
+  be nice to have http://bost.ocks.org/mike/chart/time-series-chart.js
+
+
 SEE ALSO
 
 * Examples: http://dyninc.github.com/d3-smokechart/
